@@ -1,0 +1,109 @@
+<div class="admin-dashboard">
+    <!-- <div class="sidebar">
+      <button (click)="showAllElections()" [ngClass]="{'active': isViewingAllElections}">All Elections</button>
+      <button (click)="showAddElection()" [ngClass]="{'active': !isViewingAllElections}">Add New Election</button>
+    </div> -->
+
+    <!-- Sidebar -->
+<div class="sidebar" [class.collapsed]="isCollapsed" (mouseenter)="hoverSidebar(true)"
+(mouseleave)="hoverSidebar(false)">
+<ul class="nav flex-column">
+  <!-- <li><h2 class="sidebar-title">Dashboard</h2></li> -->
+  <li class="nav-item">
+    <a class="nav-link" (click)="showAllElections()" [ngClass]="{'active': isViewingAllElections}">
+      <i class="bi bi-check-circle"></i>
+      <span class="sidebar-text" *ngIf="!isCollapsed">All Elections</span>
+    </a>
+  </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="showAddElection()" [ngClass]="{'active': !isViewingAllElections}">
+          <i class="bi bi-plus-circle"></i>
+          <span class="sidebar-text" *ngIf="!isCollapsed">Add New Election</span>
+      </a>
+  </li>
+</ul>
+</div>
+
+  
+    <div class="content">
+      <!-- All Elections Section -->
+      <section *ngIf="isViewingAllElections && !selectedElection" class="elections-section">
+        <h3>All Elections</h3>
+        <ul class="elections-list">
+          <li *ngFor="let election of elections" class="election-card">
+            <div class="election-details">
+              <h4>{{ election.electionName }}</h4>
+              <span class="status {{ election.status | lowercase }}">{{ election.status }}</span>
+              <p>{{ election.eventDetails }}</p>
+              <p><strong>Start:</strong> {{ election.startTime | date: 'medium' }}</p>
+              <p><strong>End:</strong> {{ election.endTime | date: 'medium' }}</p>
+              <div class="election-actions">
+                <button class="btn btn-edit" (click)="editElection(election)">Edit</button>
+                <button class="btn btn-candidates" (click)="viewCandidates(election.electionId)">See Candidates</button>
+                <button class="btn btn-delete" (click)="deleteElection(election.electionId)">
+                  Delete Election
+                </button>
+                </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+      
+  
+      <!-- Add New Election Section -->
+      <section *ngIf="!isViewingAllElections" class="add-election-section">
+        <h3>Add New Election</h3>
+        <form (ngSubmit)="addElection()" class="election-form">
+          <label for="electionName">Election Name:</label>
+          <input type="text" [(ngModel)]="newElection.electionName" name="electionName" required />
+  
+          <label for="status">Status:</label>
+          <select [(ngModel)]="newElection.status" name="status" required>
+            <option value="ongoing">Ongoing</option>
+            <option value="upcoming">Upcoming</option>
+            <option value="completed">Completed</option>
+          </select>
+  
+          <label for="startTime">Start Time:</label>
+          <input type="datetime-local" [(ngModel)]="newElection.startTime" name="startTime" required />
+  
+          <label for="endTime">End Time:</label>
+          <input type="datetime-local" [(ngModel)]="newElection.endTime" name="endTime" required />
+  
+          <label for="eventDetails">Event Details:</label>
+          <textarea [(ngModel)]="newElection.eventDetails" name="eventDetails"></textarea>
+  
+          <button type="submit" class="submit-button">Add Election</button>
+        </form>
+      </section>
+  
+      <!-- Edit Election Section -->
+      <section *ngIf="selectedElection" class="edit-election-section">
+        <h3>Edit Election</h3>
+        <form (ngSubmit)="updateElection()" class="election-form">
+          <label for="electionName">Election Name:</label>
+          <input type="text" [(ngModel)]="selectedElection.electionName" name="electionName" required />
+  
+          <label for="status">Status:</label>
+          <select [(ngModel)]="selectedElection.status" name="status" required>
+            <option value="ongoing">Ongoing</option>
+            <option value="upcoming">Upcoming</option>
+            <option value="completed">Completed</option>
+          </select>
+  
+          <label for="startTime">Start Time:</label>
+          <input type="datetime-local" [(ngModel)]="selectedElection.startTime" name="startTime" required />
+  
+          <label for="endTime">End Time:</label>
+          <input type="datetime-local" [(ngModel)]="selectedElection.endTime" name="endTime" required />
+  
+          <label for="eventDetails">Event Details:</label>
+          <textarea [(ngModel)]="selectedElection.eventDetails" name="eventDetails"></textarea>
+  
+          <button type="submit" class="submit-button">Save Changes</button>
+          <button type="button" (click)="cancelEdit()" class="cancel-button">Cancel</button>
+        </form>
+      </section>
+    </div>
+  </div>
+  

@@ -1,0 +1,150 @@
+/* General styling */
+body, html {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #2c3e50; /* Darker background */
+  color: #bdc3c7; /* Darker text for better contrast on dark background */
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+/* Full-Screen Container */
+.candidate-dashboard {
+  width: 100vw; /* Full viewport width */
+  max-width: 1200px; /* Optionally cap max width */
+  padding: 40px;
+  text-align: center;
+  background-color: #34495e; /* Slightly lighter for contrast */
+  border-radius: 15px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  border: 1px solid #1abc9c; /* Subtle teal border for decoration */
+  min-height: 90vh; /* Takes up most of the viewport height */
+  margin: auto; /* Center the container */
+}
+
+/* Title Styling */
+.dashboard-title {
+  font-size: 36px;
+  color: #f39c12; /* Bright yellow for emphasis */
+  font-weight: bold;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Candidates List (Vertical Layout) */
+.candidates-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px; /* Increased spacing between each candidate card */
+}
+
+/* Candidate Card */
+.candidate-card {
+  width: 100%; /* Take full width within container */
+  padding: 25px;
+  border-radius: 10px;
+  background-color: #2c3e50; /* Darker background for cards */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Subtle shadow for separation */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  margin-bottom: 20px; /* Optional: Adds extra spacing between cards */
+  border: 1px solid #34495e; /* Adds border to each card */
+}
+
+.candidate-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+}
+
+/* Candidate Name */
+.candidate-name {
+  font-size: 24px;
+  color: #ecf0f1; /* Lighter color for the candidate name */
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Vote Button */
+.vote-button {
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(135deg, #e74c3c, #c0392b); /* Gradient effect for depth */
+  border: 2px solid #e74c3c;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  text-transform: uppercase;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.vote-button:hover {
+  background: linear-gradient(135deg, #c0392b, #e74c3c); /* Reverse gradient on hover */
+  transform: scale(1.05); /* Slight scale effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.vote-button:active {
+  transform: scale(1);
+  background-color: #a93226; /* Darker on active */
+}
+
+.vote-button:disabled {
+  background-color: #bdc3c7; /* Greyed out when disabled */
+  border: 2px solid #95a5a6;
+  cursor: not-allowed;
+}
+
+/* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Darker background for better focus */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.popup-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #2c3e50; /* Darker text for the popup */
+}
+
+.popup-content button {
+  padding: 10px 20px;
+  background-color: #28a745; /* Green button for success */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup-content button:hover {
+  background-color: #218838;
+}
+
+/* Improved Text Contrast */
+.candidate-card h3, .candidate-name {
+  color: #ecf0f1; /* Lighter color for text */
+}

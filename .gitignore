@@ -1,0 +1,12 @@
+# Ignore node_modules for frontend
+frontend/node_modules
+
+# Ignore build files for Angular
+frontend/dist
+
+# Ignore target folder for Spring Boot
+backend/target
+
+# Ignore other OS-specific files
+.DS_Store
+*.log

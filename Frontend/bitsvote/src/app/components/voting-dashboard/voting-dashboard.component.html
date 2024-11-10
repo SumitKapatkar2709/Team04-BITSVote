@@ -1,0 +1,77 @@
+<div class="dashboard-wrapper">
+  <!-- Left Sidebar
+  <div class="sidebar">
+    <h2 class="sidebar-title">Dashboard</h2>
+    <button class="sidebar-button" (click)="navigateTo('elections')">Elections</button>
+    <button class="sidebar-button" (click)="navigateTo('results')">Results</button>
+  </div> -->
+
+  <!-- Sidebar -->
+  <div class="sidebar" [class.collapsed]="isCollapsed" (mouseenter)="hoverSidebar(true)"
+  (mouseleave)="hoverSidebar(false)">
+  <ul class="nav flex-column">
+    <!-- <li><h2 class="sidebar-title">Dashboard</h2></li> -->
+    <li class="nav-item">
+      <a class="nav-link" (click)="navigateTo('elections')">
+        <i class="bi bi-check-circle"></i>
+        <span class="sidebar-text" *ngIf="!isCollapsed">Elections</span>
+      </a>
+    </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="navigateTo('results')">
+            <i class="bi bi-clipboard-check"></i>
+            <span class="sidebar-text" *ngIf="!isCollapsed">Results</span>
+        </a>
+    </li>
+  </ul>
+</div>
+
+  <!-- Main Content (Voting Dashboard) -->
+  <div class="dashboard-container">
+    <h2 class="dashboard-title">Elections</h2>
+
+    <div class="filter-container">
+      <label for="electionTypeFilter">Filter by Election Type:</label>
+      <select id="electionTypeFilter" [(ngModel)]="selectedElectionType" (change)="filterElections()">
+        <option value="">All</option>
+        <option value="Hostel">Hostel</option>
+        <option value="Mess">Mess</option>
+        <option value="Cultural">Cultural</option>
+        <option value="Institutional">Institutional</option>
+      </select>
+    </div>
+
+    <div class="elections-grid">
+      <div 
+        *ngFor="let election of filteredElections" 
+        class="election-card" 
+        [class.disabled]="election.status !== 'ongoing' || (election.status === 'ongoing' && !canVote(election))"
+      >
+        <h3>{{ election.electionName }}</h3>
+        <p class="election-status">Status: {{ election.status | uppercase }}</p>
+        
+        <!-- Display status message -->
+        <p *ngIf="election.status === 'ongoing'">Voting is in progress!</p>
+        <p *ngIf="election.status === 'upcoming'">Voting has not yet started.</p>
+        <p *ngIf="election.status === 'completed'">Voting has ended.</p>
+
+        <!-- Eligibility message for specific election types -->
+        <p *ngIf="election.electionType === 'Hostel' || election.electionType === 'Mess'">
+          <span *ngIf="canVote(election)">You can vote!</span>
+          <span *ngIf="!canVote(election)">You cannot vote for Other Hostels</span>
+        </p>
+
+        
+
+        <!-- View Candidates button -->
+        <button 
+          class="view-button" 
+          [disabled]="election.status !== 'ongoing' || !canVote(election)" 
+          (click)="viewCandidates(election.electionId)"
+        >
+          View Candidates
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

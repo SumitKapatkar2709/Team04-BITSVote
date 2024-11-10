@@ -1,0 +1,36 @@
+<div class="candidates-container">
+    <h2 class="election-title">Candidates for "{{ electionName }}"</h2>
+  
+    <!-- Add Candidate Button -->
+    <button class="btn add-candidate-btn" (click)="toggleAddCandidateForm()">Add Candidate</button>
+  
+    <!-- Add Candidate Form -->
+    <div *ngIf="isAddingCandidate" class="add-candidate-form">
+      <h3>Add New Candidate</h3>
+      <form (ngSubmit)="addCandidate()">
+        <label for="candidateName">Candidate Name:</label>
+        <input type="text" [(ngModel)]="newCandidate.candidateName" name="candidateName" required />
+  
+        
+  
+        <button type="submit" class="submit-button">Add Candidate</button>
+        <button type="button" (click)="toggleAddCandidateForm()" class="cancel-button">Cancel</button>
+      </form>
+    </div>
+  
+    <!-- Candidates List -->
+    <ul *ngIf="candidates.length > 0; else noCandidates" class="candidates-list">
+      <li *ngFor="let candidate of candidates" class="candidate-card">
+        <div class="candidate-details">
+          <p class="candidate-name">{{ candidate.candidateName }}</p>
+          <!-- Delete Candidate Button -->
+          <button class="btn btn-delete" (click)="deleteCandidate(candidate.candidateId)">Delete</button>
+        </div>
+      </li>
+    </ul>
+  
+    <ng-template #noCandidates>
+      <p class="no-candidates">No candidates found for this election.</p>
+    </ng-template>
+  </div>
+  

@@ -1,0 +1,210 @@
+/* General Admin Dashboard Styling */
+.admin-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f7fa;
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  transition: width 0.3s;
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar:hover {
+  width: 250px;
+}
+
+.sidebar .nav-link {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  color: #ecf0f1;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #34495e;
+}
+
+.sidebar .nav-link i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.sidebar .sidebar-text {
+  transition: opacity 0.3s;
+}
+
+.sidebar.collapsed .sidebar-text {
+  opacity: 0;
+}
+
+/* Content Styling */
+.content {
+  flex: 1;
+  padding: 30px;
+  background-color: #ecf0f1;
+}
+
+/* Section Titles */
+h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* All Elections Section */
+.elections-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.election-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;  /* Ensure content is arranged in a column */
+  justify-content: space-between;
+  height: 100%;            /* Make sure card fills its container */
+}
+
+.election-card h4 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #2980b9;
+}
+
+.status {
+  font-weight: bold;
+  color: #7f8c8d;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+  text-align: center; /* Center the status text */
+  font-size: 16px; /* Adjusted font size for status */
+}
+
+.election-actions {
+  display: flex;
+  flex-wrap: wrap;         /* Allow buttons to wrap if they don't fit */
+  gap: 10px;               /* Space between buttons */
+  align-items: center;     /* Vertically center buttons */
+  justify-content: flex-start;  /* Align buttons to the left */
+}
+
+.election-actions .btn {
+  flex: 1 1 auto;                  /* Allow buttons to grow and shrink */
+  min-width: 100px;                /* Set a minimum width for buttons */
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  box-sizing: border-box;        /* Include padding and border in total width */
+}
+
+.election-actions .btn-edit {
+  background-color: #3498db;
+}
+
+.election-actions .btn-edit:hover {
+  background-color: #2980b9;
+}
+
+.election-actions .btn-candidates {
+  background-color: #e74c3c;
+}
+
+.election-actions .btn-candidates:hover {
+  background-color: #c0392b;
+}
+
+.election-actions .btn-delete {
+  background-color: #ff6347;
+}
+
+.election-actions .btn-delete:hover {
+  background-color: #ff4500;
+}
+
+/* Form Styling */
+.election-form {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.election-form label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;
+  color: #333;
+}
+
+.election-form input,
+.election-form select,
+.election-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.election-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.submit-button,
+.cancel-button {
+  background-color: #2ecc71;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.cancel-button {
+  background-color: #e74c3c;
+}
+
+.submit-button:hover {
+  background-color: #27ae60;
+}
+
+.cancel-button:hover {
+  background-color: #c0392b;
+}

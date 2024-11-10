@@ -1,0 +1,9 @@
+<div class="hostel-popup">
+    <h2>Select Your Hostel</h2>
+    <label for="hostel">Hostel:</label>
+    <select [(ngModel)]="selectedHostel" name="hostel" required>
+      <option *ngFor="let hostel of hostelOptions" [value]="hostel">{{ hostel }}</option>
+    </select>
+    <button (click)="updateHostel()">Submit</button>
+  </div>
+  

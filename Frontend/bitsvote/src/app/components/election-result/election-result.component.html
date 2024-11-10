@@ -1,0 +1,38 @@
+<div class="results-container">
+    <h2 class="results-title">Completed Elections Results</h2>
+  
+    <div class="elections-grid">
+      <div *ngFor="let election of completedElections" class="election-card">
+        <h3>{{ election.electionName }}</h3>
+        <p class="election-status">Status: {{ election.status | uppercase }}</p>
+  
+        <p *ngIf="election.status === 'completed'" class="voting-ended">Results are now Available.</p>
+  
+        <!-- View Results Button -->
+        <button class="view-button" (click)="viewResults(election.electionId)">
+          View Results
+        </button>
+      </div>
+    </div>
+  
+    <!-- Enhanced Popup Dialog with High Contrast -->
+    <div class="modal" *ngIf="isPopupVisible">
+      <div class="modal-content animated-slide-up">
+        <div class="modal-header">
+          <h3>Election Winner</h3>
+          <span class="close-button" (click)="closePopup()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <p *ngIf="winner">
+            <strong>{{ winner.candidateName }}</strong> won with 
+            <strong>{{ winner.votes }}</strong> votes!
+          </p>
+          <p *ngIf="!winner">No candidates found for this election.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="close-button-footer" (click)="closePopup()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

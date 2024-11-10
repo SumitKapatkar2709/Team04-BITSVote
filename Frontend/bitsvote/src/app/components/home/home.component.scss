@@ -1,0 +1,123 @@
+/* Reset margin and padding for body and html */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure full viewport height */
+  overflow: hidden; /* Prevent scrolling */
+  font-family: 'Roboto', sans-serif; /* Use a clean font */
+}
+
+#image{
+  background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.6)100%,
+      rgba(0, 0, 0, 0) 100%,
+      rgba(0, 0, 0, 0.6) 100%
+      ),url('/bits_campus_image.jpg');  
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  
+  
+}
+
+#heading{
+  font-size: 90px;
+}
+
+#heading{
+  font-size: 60px;
+}
+
+.myclass{
+  margin: 5px;
+  padding: 5px;
+}
+
+// /* Home container styling */
+// .home-container {
+//   height: 100vh; /* Full screen height */
+//   background: linear-gradient(135deg, #6e7dff, #b2b7ff); /* Background gradient */
+//   background-image: url('/bits_campus_image.jpg'); /* Background image */
+//   background-repeat: no-repeat;
+//   background-size: cover; /* Ensure image covers the entire container */
+//   background-position: center;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   position: relative;
+//   overflow: hidden; /* Prevent scrolling */
+//   text-align: center;
+//   color: white;
+
+//   /* Content styling */
+//   .content {
+//     margin-bottom: 20px;
+//     text-align: center;
+//     color: #ffffff; /* White text on dark background */
+
+//     h1 {
+//       font-size: 4rem; /* Larger font size */
+//       font-weight: 700; /* Bold */
+//       text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4); /* Text shadow for better visibility */
+//       margin-bottom: 15px;
+//       letter-spacing: 2px; /* Increase letter spacing */
+//       color: #f7f7f7; /* Slightly off-white for a softer look */
+//     }
+
+//     p {
+//       font-size: 1.5rem;
+//       color: #e0e0e0; /* Softer gray text */
+//       line-height: 1.8;
+//       max-width: 700px; /* Ensure it doesn't get too wide */
+//       margin: 0 auto;
+//       font-weight: 300; /* Lighter weight */
+//       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Subtle text shadow */
+//     }
+//   }
+
+//   /* Login buttons styling */
+//   .login-buttons {
+//     position: absolute;
+//     top: 20px;
+//     right: 20px;
+
+//     .login-button {
+//       background: linear-gradient(135deg, #ff4081, #ff80ab); /* Pink gradient */
+//       border: none;
+//       margin-left: 15px;
+//       font-size: 1.2rem;
+//       font-weight: 500;
+//       color: #fff;
+//       border-radius: 30px;
+//       cursor: pointer;
+//       transition: transform 0.2s, background 0.3s ease;
+//       padding: 20px 40px; /* Larger button padding for better clickability */
+//       box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* Soft shadow around the button */
+
+//       &:hover {
+//         transform: translateY(-5px);
+//         background: linear-gradient(135deg, #ff80ab, #ff4081);
+//       }
+
+//       &:active {
+//         transform: translateY(2px);
+//         background: linear-gradient(135deg, #ff4081, #ff80ab);
+//       }
+
+//       &.student-login {
+//         background: linear-gradient(135deg, #8e44ad, #9b59b6); /* Purple gradient */
+//       }
+
+//       &.admin-login {
+//         background: linear-gradient(135deg, #3498db, #2980b9); /* Blue gradient */
+//       }
+//     }
+//   }
+// }

@@ -1,0 +1,57 @@
+<!-- <div class="app-container">
+ 
+  
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div> -->
+
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="home" routerLinkActive="active">BITSVote</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About Us</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Login
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" (click)="onStudentLogin()">Student Login</a></li>
+            <li><a class="dropdown-item" (click)="onAdminLogin()">Admin Login</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<footer class="footer py-2 mt-auto" id="footer"> <!--//can have mt-5 -->
+  <div class="conainer text-light text-center">
+      <p class="display-6">BITSVote</p>
+      <small class="text-white-60" id="subheading"> Made with ❤️ by BITSians </small>
+  </div>
+</footer>
+

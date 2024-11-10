@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Access Denied</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            margin: 0 auto;
+            max-width: 500px;
+        }
+        .message {
+            color: #ff0000;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Access Denied</h1>
+        <p class="message" th:text="${message}">You do not have permission to access this application.</p>
+        <p>Please contact your administrator if you believe this is an error.</p>
+    </div>
+</body>
+</html>

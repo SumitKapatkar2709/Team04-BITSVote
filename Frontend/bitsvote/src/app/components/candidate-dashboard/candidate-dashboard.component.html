@@ -1,0 +1,21 @@
+<div class="candidate-dashboard">
+  <h2>Candidates for "{{ electionName }}"</h2>
+
+  <div class="candidates-grid">
+    <div *ngFor="let candidate of candidates" class="candidate-card">
+      <h3>{{ candidate.candidateName }}</h3>
+      <button (click)="voteForCandidate(candidate.candidateId)" 
+              [disabled]="hasVoted">
+        Vote
+      </button>
+    </div>
+  </div>
+
+  <!-- Popup Modal -->
+  <div class="popup-overlay" *ngIf="showPopup">
+    <div class="popup-content">
+      <p>You have voted successfully!</p>
+      <button (click)="closePopup()">OK</button>
+    </div>
+  </div>
+</div>
