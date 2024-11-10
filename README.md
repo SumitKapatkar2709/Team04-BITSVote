@@ -1,5 +1,35 @@
 # Bitsvote
 
+BITSVote is a web-based voting application designed to enable secure and efficient voting for BITS Pilani students. The system is divided into a frontend built with modern web technologies and a backend powered by Spring Boot.
+
+## Table of Contents
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+
+
+## Features
+- Secure Google-based authentication (for BITS emails only)
+- Role-based access for students, admins, and organizers
+- Real-time voting results with dynamic charts
+- Admin dashboard to manage elections and candidates
+- Responsive UI for both desktop and mobile users
+
+## Tech Stack
+### Frontend
+- **Angular 18**
+- HTML5, CSS3, TypeScript
+- Bootstrap / Material UI (for styling)
+
+### Backend
+- **Spring Boot 3.4.4**
+- Java 17
+- MySQL (or any other relational database)
+- Spring Data JPA
+- Spring Security (with Google OAuth2)
+
+## Installation
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.3.
 
 ## Development server
